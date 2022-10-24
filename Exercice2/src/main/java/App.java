@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 public class App<T> {
@@ -8,4 +10,19 @@ public class App<T> {
     Predicate<Paire<Integer, Double>> poidsTropLourd = p -> p.snd > 150.0;
     Predicate<Paire<Integer, Double>> poidsCorrect = Predicate.not(poidsTropLourd);
     Predicate<Paire<Integer, Double>> accesAutorise = p -> tailleCorrecte.test(p) && poidsCorrect.test(p);
+
+    public <T> List<T> filtragePredicatif(List<Predicate<T>> conditions, List<T> elements){
+        List<T> liste = new ArrayList<>();
+        Predicate<T> predicat = x -> true;
+
+        for(Predicate<T> p : conditions){
+            predicat = predicat.and(p);
+        }
+        for(T e : elements) {
+            if (predicat.test(e)){
+                liste.add(e);
+            }
+        }
+        return liste;
+    }
 }
