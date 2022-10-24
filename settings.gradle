@@ -1,3 +1,4 @@
 rootProject.name = 'TD2-pt2&3-RIPERT'
 include 'Exercice2'
+include 'Exercice3'
 
