@@ -1,7 +1,18 @@
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Predicate;
 
 public class App {
+
+    Predicate<Etudiant> aNoteEliminatoire = x -> {
+        for (int i = 0; i < x.notes().size(); i++) {
+            if (x.notes().get(x.notes().keySet()) < 6) {
+                return false;
+            }
+        }
+        return true;
+    };
+
     public static void main(String[] args) {
         Matiere m1 = new Matiere("MAT1");
         Matiere m2 = new Matiere("MAT2");
