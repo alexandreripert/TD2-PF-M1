@@ -25,4 +25,17 @@ public class App<T> {
         }
         return liste;
     }
+
+    public static void main(String[] args) {
+        App app = new App<>();
+
+        Paire PaireOk = new Paire(150, 130.0);
+        Paire Lamia = new Paire(80, 100.0); //parce que Lamia est petite
+        Paire PaireTropLourde = new Paire(170, 205.0);
+
+
+        System.out.println(app.accesAutorise.test(PaireOk));
+        System.out.println(app.accesAutorise.test(Lamia));
+        System.out.println(app.accesAutorise.test(PaireTropLourde));
+    }
 }
